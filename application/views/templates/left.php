@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title> Universal Suppliers </title>
+        <title> Universal Office Suppliers </title>
         <link rel="stylesheet" href="<?php echo base_url(); ?>content/styles/me.css" type="text/css" />
         
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -9,9 +9,7 @@
 	<script type="text/javascript" src="<?php echo base_url(); ?>content/engine1/jquery.js"></script>
     </head>
     <body>
-      <!--  <script>
-document.write(screen.width+" px");
-</script> -->       
+    
 <div class="full">
     <div class="full_left" >
         <div class="header">

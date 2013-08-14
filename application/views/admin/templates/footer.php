@@ -14,7 +14,7 @@
 <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 </div>
 <div id="footer_right">
-    <img src="<?php echo base_url()."/content/images/bnw.png"; ?>"/>
+    <img src="<?php echo base_url()."content/images/bnw.png"; ?>"/>
 </div>
 <div class="clear"/>
 </div>
