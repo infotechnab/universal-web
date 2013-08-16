@@ -1,7 +1,17 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title> Universal Office Suppliers </title>
+ <?php foreach ($query as $data)
+ {
+     $pageTitle = $data->title;
+ }
+?>
+        <title>
+              <?php if(isset($pageTitle))
+{echo $pageTitle.' ' .'-'.' '.'Universal Office Suppliers' ;}
+else
+{echo $pageTitle = 'Universal Office Suppliers';}
+?> </title>
         <link rel="stylesheet" href="<?php echo base_url(); ?>content/styles/me.css" type="text/css" />
         
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />

@@ -25,7 +25,7 @@
 	<!-- End WOWSlider.com BODY section --> 
 </div>
 <div class="content">
-    <?php foreach ($event as $data)
+    <?php foreach ($query as $data)
     {
         $title = $data->title;
         $body = $data->body;

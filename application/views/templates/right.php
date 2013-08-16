@@ -35,7 +35,7 @@
 </div>
 <div class="content">
   <div class="title-name">
-  <h2> <?php echo $tital; ?></h2>
+  <h2> <?php echo $tital; ?> </h2>
   </div>
 <?php if(isset($image))
 {
