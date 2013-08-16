@@ -1,6 +1,7 @@
 body{margin: 0;
         padding: 0;
-          background-color: #50c1ed;
+          background-color: #EBF3EC;
+         font-family:Arial,Helvetica,sans-serif;
 }
 
 .full{
@@ -10,6 +11,7 @@ body{margin: 0;
    
 }
 
+
 .full_left{
     margin: 0 auto 0 auto;
     padding: 0;
@@ -18,16 +20,27 @@ body{margin: 0;
     height: auto;
 }
 
-h1{
+p{
+    text-align: justify;
+}
+
+.title-name h1{
     margin: 0;
     padding: 0;
         
 }
-h2{
+.title-name h2{
     margin: 0;
-    padding: 0;
+    padding: 5px;
    background-color: #2c5772;
    
+    color: #fff;
+   
+}
+
+.title-name
+{
+    text-align: center;
 }
 
 .header{
@@ -38,57 +51,81 @@ h2{
 }
 
 .sub-title-name{
-    font-size: 20px;
-    padding: 5px;
+    font-size: 18px;   
     color: #005702;
     text-align: center;
 }
 
 
 .menu-item{   
-    background-color: #99BC99;
+    background-color: #fff;
     width: 100%;
-    min-height: 200px;
+   
     float:left;
 }
 .par-list{
-max-height: 30px;}
+    height: 35px;
+max-height: 35px;}
 
 .menu-item ul{
     margin: 0;
-    padding: 5px;
+    
     font-size: 25px;
 }
 .menu-item ul li{
     margin: 0;
     list-style: none;
-     border: solid 1px #000;
+     
      padding: 5px;
 }
-.menu-item ul li:hover{
-    background-color:#16891b;
-      
+.list{
+margin: 0;
+padding: 0;
 }
-.menu-item ul ul {
+
+.menu-item ul li{
+    margin: 0;
+   
+}
+.menu-item li{
+    border-bottom: dotted #000 1px;
+}
+.list a
+{   
+    padding-left: 30px;
+  
+}
+
+.menu-item ul ul 
+{
         margin: 0;
 	position: relative;
-         top:-35px;
-        left:385px;
 	display:none;
-	border:#ccc solid 1px;       	
+	 	
+}
+.menu-item ul li{
+    background-color: #f4f4f4;
+}
+
+.menu-item ul li:hover{
+    background-color: #D0D0D0;
+    
 }
 .menu-item ul li:hover ul  {
         margin: 0;
 	display:block;
         position: relative;
-        top:-35px;
-        left:385px;
+        top:-40px;
+        left:390px;
 	padding:10px;
-        background-color: #99BC99;
+        
 	z-index:5000;	
 }
+.menu-item ul li:hover ul li{
+    padding:5px;
+}
 .menu-item ul li:hover ul li:hover {										
-		background-color:#16891b;
+		background-color: #D0D0D0;
                 
 }
 
@@ -105,19 +142,13 @@ a
    
     background-color: #D0D0D0;
     width: 100%;
-    min-height: 200px;   
-}
-.quick-contact-div{
-    min-height: 180px;
-    background-color: #D0D0D0;
-    text-align: center;
-    
     
 }
 
+
 .quick-contact{
-    font-size: 12px;
-   background-color: #D0D0D0;
+    
+  
 }
 
 .event-para{
@@ -125,12 +156,9 @@ a
     padding-left:  15px;
 }
 #n-body{
-    padding-left: 15px;
+    padding: 0 15px 0 15px;
 }
-.title-name{
-    background-color: #003399;
-    text-align: center;
-}
+
 .full-right{
     float: right;
     width:70%;
@@ -143,15 +171,24 @@ a
     z-index: -3000;
 }
 .content{
-    background-color: #50c1ed;
+   
     width: 100%;
-    min-height: 500px;    
+    min-height: 500px; 
+    font-size: 18px;
 }
 .para{
-    padding: 15px;
+    padding: 0 20px 0 20px;
 }
 
 .footer{
     background-color: #EBF3EC;
     text-align: center;
 }
+.content img
+{
+    margin: 10px;
+    float: left;
+    border: solid #000 3px;
+    border-radius: 10px;
+}
+
