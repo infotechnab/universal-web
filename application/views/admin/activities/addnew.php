@@ -7,8 +7,10 @@
 ?>
   <h2>Add New News & Events </h2>
   <?php echo validation_errors();
+  if(isset($error))
+  {
     echo $error;
-  
+  }
   ?>
   <?php if($this->session->flashdata('message')){echo $this->session->flashdata('message');}?>
   <?php echo form_open_multipart('admin/addactivity');?>
@@ -19,7 +21,7 @@
   <textarea name="body" rows="5" cols="50" style="resize:none;"></textarea>
   </p>
   <p>Image(315px, 100px): <br />
-    <input type="file" name="userfile" size="20" />
+    <input type="file" name="file" size="20" />
    <p>Status:<br />
   <?php 
   $options = array(

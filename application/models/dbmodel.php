@@ -137,6 +137,17 @@ class Dbmodel extends CI_Model {
 
         $this->db->delete('pages', array('pid' => $pid));
     }
+    
+     public function delete_page_image($pid)
+    {
+            $data = Array(
+            'image' => ""
+           );
+        
+            $this->db->where('pid', $pid);
+            
+            $this->db->update('pages',$data);
+    }
 
     
 // Activities ----------------------------------------------------------
@@ -146,11 +157,13 @@ class Dbmodel extends CI_Model {
     }
 
     public function add_new_activities($title, $body, $image, $status) {
-        $data = Array(
-            'title' => $title,
-            'body' => $body,
-            'image' => $image,
-            'status' => $status);
+      
+            $data = array(
+                'image'=>$image,
+                'title' => $title,
+                'body' => $body,
+                'status' => $status);
+        
         $this->db->insert('activities', $data);
     }
 
@@ -171,6 +184,7 @@ class Dbmodel extends CI_Model {
 
         if (!isset($image)) {
             $data = array(
+                'image'=>$image,
                 'title' => $title,
                 'body' => $body,
                 'status' => $status);
@@ -184,6 +198,17 @@ class Dbmodel extends CI_Model {
 
         $this->db->where('aid', $id);
         $this->db->update('activities', $data);
+    }
+    
+    public function delete_activities_image($aid)
+    {
+            $data = Array(
+            'image' => ""
+           );
+        
+            $this->db->where('aid', $aid);
+            
+            $this->db->update('activities',$data);
     }
 
     //gadgets --------------------------------------------------------------------------------

@@ -68,16 +68,20 @@ class admin extends CI_Controller {
             //set validation rules
             $this->form_validation->set_rules('title', 'Title', 'required|xss_clean|max_length[200]');
             $this->form_validation->set_rules('body', 'Body', 'required|xss_clean');
-
-            if (($this->form_validation->run() == FALSE)||(!$this->upload->do_upload('file'))) {
-                //if not valid
-                $error = array('error' => $this->upload->display_errors());  
-                $this->load->view('admin/pages/addnew', $error);
-                
-            } else {
+            
+            if (($this->form_validation->run() == TRUE))
+            {
+             if ($_FILES && $_FILES['file']['name'] !== "")
+             {
+                 if (!$this->upload->do_upload('file')) 
+                 {
+                  $error = array('error' => $this->upload->display_errors('file'));  
+                  $this->load->view('admin/pages/addnew', $error); 
+                 }
+                 else
+                 {           
                 //if valid
-                
-                $data = array('upload_data' => $this->upload->data());
+                       $data = array('upload_data' => $this->upload->data());
                 $image = $data['upload_data']['file_name'];
                 
                 $name = $this->input->post('title');
@@ -87,13 +91,30 @@ class admin extends CI_Controller {
                 $this->session->set_flashdata('message', 'One pages added sucessfully');
                 redirect('admin/pages');
             }
+            }
+             else
+             { $image = "";               
+                $name = $this->input->post('title');
+                $body = $this->input->post('body');
+                $status = $this->input->post('status');
+                $this->dbmodel->add_new_page($name, $body, $image, $status);
+                $this->session->set_flashdata('message', 'One pages added sucessfully');
+                redirect('admin/pages');
+                 
+             }
+            }
+            
+            else
+            {
+                
+                $this->load->view('admin/pages/addnew');
+            }
 
             $this->load->view('admin/templates/footer');
         } else {
             redirect('login', 'refresh');
         }
     }
-
     function editpage($pid) {
         if ($this->session->userdata('logged_in')) {
         $data['query'] = $this->dbmodel->findpage($pid);
@@ -113,18 +134,15 @@ class admin extends CI_Controller {
     
     //delete page
     
-    
-
     public function update() {
         if ($this->session->userdata('logged_in')) {
-            
             $config['upload_path'] = './uploads/';
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '500';
             $config['max_width'] = '1024';
             $config['max_height'] = '768';
             $this->load->library('upload', $config);
-            
+            $id = $this->input->post('id');
             $header = "admin/templates/header";
             $this->load->view($header);
             $this->load->view('admin/templates/menu');
@@ -133,18 +151,20 @@ class admin extends CI_Controller {
             //set validation rules
             $this->form_validation->set_rules('title', 'Title', 'required|xss_clean|max_length[200]');
             $this->form_validation->set_rules('body', 'Body', 'required|xss_clean');
-
-            if (($this->form_validation->run() == FALSE)||(!$this->upload->do_upload())) {
-                //if not valid
-                $pid = $this->input->post('id');
-                $data['query'] = $this->dbmodel->findpage($pid);
-                $data['error']=$this->upload->display_errors();
-                $this->load->view('admin/pages/edit',$data);
-            } else {
+           if (($this->form_validation->run() == TRUE))
+            {
+             if ($_FILES && $_FILES['file']['name'] !== "")
+             {
+                 if (!$this->upload->do_upload('file')) 
+                 {
+                  $error = array('error' => $this->upload->display_errors('file'));  
+                  $this->load->view('admin/pages/addnew', $error); 
+                 }
+                 else
+                 {
                 //if valid
                  $data = array('upload_data' => $this->upload->data());
                 $image = $data['upload_data']['file_name'];
-                
                 $id = $this->input->post('id');
                 $title = $this->input->post('title');
                 $body = $this->input->post('body');
@@ -154,8 +174,42 @@ class admin extends CI_Controller {
 
                 redirect('admin/pages');
             }
+            }
+            else
+             {              
+                $image = $this->input->post('imgname');               
+                $name = $this->input->post('title');
+                $body = $this->input->post('body');
+                $status = $this->input->post('status');
+                $this->dbmodel->update_page($id, $name, $body, $image, $status);
+                $this->session->set_flashdata('message', 'Data Modified Sucessfully');
+               redirect('admin/pages');
+                 
+             }
+            }
+            
+            else
+            {
+                $id = $this->input->post('id');
+                $data['query'] = $this->dbmodel->findpage($id);
+                $this->load->view('admin/pages/addnew');
+            }
             $this->load->view('admin/templates/footer');
         } else {
+            redirect('login', 'refresh');
+        }
+    }
+    
+    
+
+    public function delete_page_image($pid)
+    {
+        if ($this->session->userdata('logged_in')) {
+        $this->dbmodel->delete_page_image($pid);
+        $this->session->set_flashdata('message', 'Data Delete Sucessfully');
+        redirect('admin/pages');
+        }
+        else {
             redirect('login', 'refresh');
         }
     }
@@ -306,14 +360,17 @@ class admin extends CI_Controller {
             $this->form_validation->set_rules('title', 'Title', 'required|xss_clean|max_length[200]');
             $this->form_validation->set_rules('body', 'Body', 'required|xss_clean');
 
-            if (($this->form_validation->run() == FALSE) || (!$this->upload->do_upload())) {
-
-                //if not valid
-                $error = array('error' => $this->upload->display_errors());
-                                
-
-                $this->load->view('admin/activities/addnew', $error);
-            } else {
+            if (($this->form_validation->run() == TRUE))
+            {
+             if ($_FILES && $_FILES['file']['name'] !== "")
+             {
+                 if (!$this->upload->do_upload('file')) 
+                 {
+                  $error = array('error' => $this->upload->display_errors('file'));  
+                  $this->load->view('admin/activities/addnew',$error); 
+                 }
+                 else
+                 {
 
                 //if valid
                 $data = array('upload_data' => $this->upload->data());
@@ -327,6 +384,26 @@ class admin extends CI_Controller {
                 $this->session->set_flashdata('message', 'One Activities added sucessfully');
                 redirect('admin/activities');
             }
+             }
+             else
+             {
+                $image = '';               
+                $name = $this->input->post('title');
+                $body = $this->input->post('body');
+                //$image = $imagedata['file_name'];
+                $status = $this->input->post('status');
+                $this->dbmodel->add_new_activities($name, $body, $image, $status);
+                $this->session->set_flashdata('message', 'One Activities added sucessfully');
+                redirect('admin/activities');
+                 
+             }
+            }
+            
+            else
+            {
+                
+                $this->load->view('admin/activities/addnew');
+            } 
             $this->load->view('admin/templates/footer');
         } else {
 
@@ -366,13 +443,17 @@ class admin extends CI_Controller {
             //set validation rules
             $this->form_validation->set_rules('title', 'Title', 'required|xss_clean|max_length[200]');
             $this->form_validation->set_rules('body', 'Body', 'required|xss_clean');
-            if (($this->form_validation->run() == FALSE) || (!$this->upload->do_upload())) {
-                //if not valid
-                $id = $this->input->post('id');
-                $data['query'] = $this->dbmodel->findactivities($id);
-                $data['error']=$this->upload->display_errors();                
-                $this->load->view('admin/activities/edit',$data);
-            } else {
+           if (($this->form_validation->run() == TRUE))
+            {
+             if ($_FILES && $_FILES['file']['name'] !== "")
+             {
+                 if (!$this->upload->do_upload('file')) 
+                 {
+                  $error = array('error' => $this->upload->display_errors('file'));  
+                  $this->load->view('admin/activities/addnew',$error); 
+                 }
+                 else
+                 {
                 //if valid
                 
                 
@@ -385,6 +466,26 @@ class admin extends CI_Controller {
                 $this->dbmodel->update_activities($id, $title, $body, $image, $status);
                 $this->session->set_flashdata('message', 'Data Modified Sucessfully');
                 redirect('admin/activities');
+             } 
+             }
+             else
+             {
+                $image = $this->input->post('imgname');               
+                $id = $this->input->post('id');
+                $title = $this->input->post('title');
+                $body = $this->input->post('body');
+                $status = $this->input->post('status');
+                $this->dbmodel->update_activities($id, $title, $body, $image, $status);
+                $this->session->set_flashdata('message', 'Data Modified Sucessfully');
+                redirect('admin/activities');
+                 
+             }
+            }
+            
+            else
+            {
+                
+                $this->load->view('admin/activities/addnew');
             }
             $this->load->view('admin/templates/footer');
         } else {
@@ -400,6 +501,18 @@ class admin extends CI_Controller {
         redirect('admin/activities');
         } else {
 
+            redirect('login', 'refresh');
+        }
+    }
+    
+    public function delete_activities_image($aid)
+    {
+        if ($this->session->userdata('logged_in')) {
+        $this->dbmodel->delete_activities_image($aid);
+        $this->session->set_flashdata('message', 'Data Delete Sucessfully');
+        redirect('admin/activities');
+        }
+        else {
             redirect('login', 'refresh');
         }
     }

@@ -25,11 +25,21 @@
   <p>Title:<br />
       <input type="hidden" name="id" value="<?php echo $pid; ?>" />
       <input type="text" name="title" value="<?php echo $title; ?>" />
+      <input type="hidden" name="imgname" value="<?php echo $image; ?>"
   </p>
   <p>Body:<br />
   <textarea name="body" rows="5" cols="50" style="resize:none;"><?php echo $body; ?></textarea>
   </p>
-  <p> Image : <br/> <input type="file" name="userfile"/> </p>
+   <?php if($image!=="")
+  {?>  
+  <p>Present image : <br/>
+  <div >
+      <img src="<?php echo base_url(); ?>uploads/<?php echo $data->image; ?>" width="250px" height="150px" /> 
+      <a href="<?php echo base_url();?>index.php/admin/delete_page_image/<?php echo $pid; ?>">
+        <img src="<?php echo base_url();?>content/images/delete.png" width="20px" height="20px"/></a>
+  </div>
+  <?php }?>
+  <p> Select New Image : <br/> <input type="file" name="file"/> </p>
     
    <p>Status:<br />
   <?php 

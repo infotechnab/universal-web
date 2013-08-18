@@ -18,11 +18,11 @@ class View extends CI_Controller {
 
 	public function index()
 	{
-             $data['slider'] = $this->viewmodel->get_slider();
+             
             //$data['abc']= "this is message";
             $id=1;
             $data['event'] = $this->viewmodel->get_event();
-     
+     $data['slider'] = $this->viewmodel->get_slider();
             $data['query'] =$this->viewmodel->get_page($id);
             $data['gadget'] = $this->viewmodel->get_gadgets();
 		$this->load->view('templates/left',$data);
