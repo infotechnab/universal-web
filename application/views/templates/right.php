@@ -37,12 +37,10 @@
   <div class="title-name">
   <h2> <?php echo $tital; ?> </h2>
   </div>
-<?php if(isset($image))
-{
-    ?><img src="<?php echo base_url();?>uploads/<?php echo $image; ?>" style="max-height: 100%;"/>
-    <?php 
-}
-    ?>
+<?php if((isset($image)) && (trim($image) !==''))
+{ ?>
+    <img src="<?php echo base_url();?>uploads/<?php echo $image; ?>" style="max-height: 100%;"/>
+<?php } ?>
     
     <p class="para"><?php echo $body; ?></p>
         

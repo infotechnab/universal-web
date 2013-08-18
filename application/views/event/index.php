@@ -3,10 +3,12 @@
    <!-- Start WOWSlider.com BODY section -->
 	<div id="wowslider-container1">
 	<div class="ws_images"><ul>
-<li><img src="<?php echo base_url(); ?>content/data1/images/cctv_camera_alarm_cctv_ir_camera_surveillance_ir_equipment.jpg" alt="CCTV_Camera_Alarm_CCTV_IR_Camera_surveillance_IR_equipment" title="CCTV_Camera_Alarm_CCTV_IR_Camera_surveillance_IR_equipment" id="wows1_0"/></li>
-<li><img src="<?php echo base_url(); ?>content/data1/images/iphoneapplehomecctvsecurity.jpg" alt="iphone-apple-home-cctv-security" title="iphone-apple-home-cctv-security" id="wows1_1"/></li>
+   <?php foreach ($slider as $data)
+   { ?>           
+<li><img src="<?php echo base_url(); ?>slider/<?php echo $data->image; ?>" alt="<?php echo $data->title; ?>" title="<?php echo $data->title; ?>" id="wows1_0"/></li> <?php } ?>
+<!--<li><img src="<?php echo base_url(); ?>content/data1/images/iphoneapplehomecctvsecurity.jpg" alt="iphone-apple-home-cctv-security" title="iphone-apple-home-cctv-security" id="wows1_1"/></li>
 <li><img src="<?php echo base_url(); ?>content/data1/images/samsung.jpg" alt="samsung" title="samsung" id="wows1_2"/></li>
-<li><img src="<?php echo base_url(); ?>content/data1/images/untitled2.jpg" alt="Untitled-2" title="Untitled-2" id="wows1_3"/></li>
+<li><img src="<?php echo base_url(); ?>content/data1/images/untitled2.jpg" alt="Untitled-2" title="Untitled-2" id="wows1_3"/></li> -->
 </ul></div>
 <div class="ws_bullets"><div>
 <a href="#" title="CCTV_Camera_Alarm_CCTV_IR_Camera_surveillance_IR_equipment">
@@ -22,7 +24,7 @@
 	</div>
 	<script type="text/javascript" src="<?php echo base_url(); ?>content/engine1/wowslider.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>content/engine1/script.js"></script>
-	<!-- End WOWSlider.com BODY section --> 
+	<!-- End WOWSlider.com BODY section -->  
 </div>
 <div class="content">
     <?php foreach ($query as $data)
@@ -35,7 +37,9 @@
   <h2> <?php echo $title; ?></h2>
   </div>
     
+    <?php if((isset($image)) && ($image !=='')){ ?>    
     <img src="<?php echo base_url();?>uploads/<?php echo $image; ?>" style="max-height: 100%;"/>
+    <?php } ?>
     
     <p class="para"><?php echo $body; ?></p>
         
