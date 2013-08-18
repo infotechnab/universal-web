@@ -16,7 +16,8 @@
     <table border="1" cellpadding="10">
         <tr>
             <th>S.N.</th>
-            <th>News & Events </th>           
+            <th>News & Events </th> 
+            <th>Image</th>
             <th>Action</th>
         </tr>
     
@@ -29,6 +30,13 @@
           <tr>
             <td><?php echo $data->aid ?></td>
             <td><?php echo $data->title ?></td>
+            <?php $image = $data->image;
+            if(($image =='0')||($image ==''))
+            {
+                $image = 'image not set';
+            }
+?>
+            <td><?php echo $image; ?></td>
             <td><?php echo anchor('admin/editactivities/'.$data->aid,'Edit') ?> / <?php echo anchor('admin/deleteactivities/'.$data->aid,'Delete') ?></td>
       
         </tr>

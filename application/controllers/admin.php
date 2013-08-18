@@ -1057,13 +1057,6 @@ class admin extends CI_Controller {
         else {
             redirect('login', 'refresh');
         }
-    }
-    
-    
-    
+    }     
 }
-
-
-
 ?>
-

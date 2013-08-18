@@ -37,7 +37,7 @@
   <h2> <?php echo $title; ?></h2>
   </div>
     
-    <?php if((isset($image)) && ($image !=='')){ ?>    
+    <?php if((isset($image)) && ($image !=='') && ($image !=='0')){ ?>    
     <img src="<?php echo base_url();?>uploads/<?php echo $image; ?>" style="max-height: 100%;"/>
     <?php } ?>
     

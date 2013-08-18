@@ -13,7 +13,7 @@ else
 {echo $pageTitle = 'Universal Office Suppliers';}
 ?> </title>
         <link rel="stylesheet" href="<?php echo base_url(); ?>content/styles/me.css" type="text/css" />
-        
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>content/images/favicon.ico" type="image/x-icon">
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>content/engine1/style.css" />
 	<script type="text/javascript" src="<?php echo base_url(); ?>content/engine1/jquery.js"></script>
@@ -23,7 +23,7 @@ else
 <div class="full">
     <div class="full_left" >
         <div class="header">
-            <img src="<?php echo base_url();?>content/images/logo2.jpg" />
+            <img src="<?php echo base_url();?>content/images/logo2.jpg" alt="universal logo" />
         </div>
         
         <div class="search">
@@ -39,7 +39,7 @@ else
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<gcse:search></gcse:search>
+<gcse:search> </gcse:search>
             </div>
         
         
@@ -53,7 +53,7 @@ else
             <ul class="list">
                 <li class="par-list"><?php echo anchor('view/page/1','Home'); ?></li>
               
-                <li class="par-list">  <?php echo anchor('view/page/2','About US'); ?>
+                <li class="par-list">  <?php echo anchor('view/page/2','About Us'); ?>
                     <ul class="sub-list">
                         <li> <?php echo anchor('view/page/3','Mission/Vision'); ?></li>
                         <li> <?php echo anchor('view/page/4','Objective'); ?></li>
@@ -78,7 +78,7 @@ else
                 </ul>
                      </li>
                 <li class="par-list"> <?php echo anchor('view/page/19','Services'); ?>  </li>
-                <li class="par-list"> <?php echo anchor('view/page/20','Contact US'); ?>  </li>
+                <li class="par-list"> <?php echo anchor('view/page/20','Contact Us'); ?>  </li>
                 
             </ul>
             
@@ -101,7 +101,7 @@ else
     $image = $data->image;
 ?>
           <div class="sub-title-name"> <?php echo $data->title; ?> </div>
-         <p id="n-body"> <?php
+         <p class="n-body"> <?php
           $wordsreturned = 150;
           $string = $data->body;
           $retval =$string;
@@ -116,7 +116,7 @@ else
               ?> 
           <?php echo strip_tags($retval); } ?> </p>
  
-         <p id="n-body"> <?php echo anchor('view/events/'.$aid,'more','style="color:green;"'); ?> </p> <hr/> <?php } ?>
+         <p class="n-body"> <?php echo anchor('view/events/'.$aid,'more','style="color:green;"'); ?> </p> <hr/> <?php } ?>
                   
         </div>
         
@@ -127,7 +127,7 @@ else
         <div class="quick-contact">
             <?php foreach ($gadget as $data)
             { ?>
-            <p id="n-body"> <b> <?php echo $data->title;?> </b> : <?php echo $data->body; ?></p>
+            <p class="n-body"> <b> <?php echo $data->title;?> </b> : <?php echo $data->body; ?></p>
             <?php
             }
 ?>

@@ -179,23 +179,24 @@ class Dbmodel extends CI_Model {
         $this->db->delete('activities', array('aid' => $aid));
     }
 
-    public function update_activities($id, $title, $body, $image, $status) {
+   
+    
+     public function update_activities($id, $title, $body, $image, $status) {
         $this->load->database();
-
-        if (!isset($image)) {
+         if (!isset($image)) {
             $data = array(
-                'image'=>$image,
+                'image'=>" ",
                 'title' => $title,
                 'body' => $body,
                 'status' => $status);
         } else {
-            $data = array(
-                'title' => $title,
-                'body' => $body,
-                'image' => $image,
-                'status' => $status);
+           $data = array(
+            'title' => $title,
+            'body' => $body,
+            'image'=> $image,
+            'status' => $status);
+        
         }
-
         $this->db->where('aid', $id);
         $this->db->update('activities', $data);
     }

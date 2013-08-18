@@ -29,7 +29,7 @@
           <tr>
             <td><?php echo $data->sid ?></td>
             <td><?php echo $data->title ?></td>
-            <td><?php echo $data->image ?>  </td>
+            <td><img src="<?php echo base_url(); ?>slider/<?php echo $data->image ?>" width="60px" height="50px" />  </td>
             <td><?php echo anchor('admin/editslider/'.$data->sid,'Edit'); ?> / 
             <?php echo anchor('admin/deleteslider/'.$data->sid,'Delete'); ?></td>
         </tr>

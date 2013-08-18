@@ -40,7 +40,7 @@
   <p>Body:<br />
   <textarea name="body" rows="5" cols="50" style="resize:none;"><?php echo $body; ?></textarea>
   </p>
-   <?php if($image!=="")
+   <?php if(($image!=="")&&($image !=='0'))
   {?>  
   <p>Present image : <br/>
   <div >

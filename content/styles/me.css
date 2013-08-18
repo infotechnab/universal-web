@@ -163,7 +163,7 @@ a
 .full-right{
     float: right;
     width:70%;
-    height: auto;    
+        
 }
 .slider{
     background-color: #fff;
@@ -198,5 +198,14 @@ a
     float: left;
     border: solid #000 3px;
     border-radius: 10px;
+    max-height: 300px;
+    max-width: 550px;
+}
+.credit{
+    float: right;
+    
+}
+.clear{
+    clear: both;
 }
 
