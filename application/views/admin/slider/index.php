@@ -1,10 +1,3 @@
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
 <h2>Slider </h2>
 <a href="addslider">Add New Slider</a>
 <div id="body">
@@ -18,11 +11,8 @@
             <th>Title</th> 
             <th>Image</th>
             <th>Action</th>
-        </tr>
-    
-    <?php
-    
-    
+        </tr>    
+    <?php    
         if(isset($query)){
             foreach ($query as $data){
             ?>
@@ -36,7 +26,6 @@
             <?php    
             }
         }
-    ?>
-       
+    ?>       
     </table>
 </div>

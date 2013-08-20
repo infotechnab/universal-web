@@ -1,31 +1,32 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
- <?php foreach ($query as $data)
+<head>
+<?php foreach ($query as $data)
  {
      $pageTitle = $data->title;
  }
 ?>
-        <title>
-              <?php if(isset($pageTitle))
+<title>
+    <?php if(isset($pageTitle))
 {echo $pageTitle.' ' .'-'.' '.'Universal Office Suppliers' ;}
 else
 {echo $pageTitle = 'Universal Office Suppliers';}
-?> </title>
-        <link rel="stylesheet" href="<?php echo base_url(); ?>content/styles/me.css" type="text/css" />
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>content/images/favicon.ico" type="image/x-icon">
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>content/engine1/style.css" />
-	<script type="text/javascript" src="<?php echo base_url(); ?>content/engine1/jquery.js"></script>
-    </head>
+?>
+</title>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>content/styles/me.css" type="text/css" />
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>content/images/favicon.ico" type="image/x-icon">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>content/engine1/style.css" />
+    <script type="text/javascript" src="<?php echo base_url(); ?>content/engine1/jquery.js"></script>
+</head>
     <body>
-    
 <div class="full">
     <div class="full_left" >
         <div class="header">
-            <img src="<?php echo base_url();?>content/images/logo2.jpg" alt="universal logo" />
+            <!--<img src="<?php echo base_url();?>content/images/logo2.jpg" alt="universal logo" />-->
+            <h1> Universal Office <br/>
+                Suppliers </h1>
         </div>
-        
         <div class="search">
 <script>
   (function() {
@@ -40,24 +41,20 @@ else
   })();
 </script>
 <gcse:search> </gcse:search>
-            </div>
-        
-        
+</div>
         <div class="menu-item">
             <div class="menu-title">
                 <div class="title-name">
-                    <h2> Menu </h2>
+                    
                 </div>
             </div>
-            
             <ul class="list">
                 <li class="par-list"><?php echo anchor('view/page/1','Home'); ?></li>
-              
                 <li class="par-list">  <?php echo anchor('view/page/2','About Us'); ?>
                     <ul class="sub-list">
                         <li> <?php echo anchor('view/page/3','Mission/Vision'); ?></li>
                         <li> <?php echo anchor('view/page/4','Objective'); ?></li>
-                    </ul> 
+                    </ul>
                 </li>
                 <li class="par-list"> <a href="#">Products</a>
                <ul class="sub-list">
@@ -79,28 +76,32 @@ else
                      </li>
                 <li class="par-list"> <?php echo anchor('view/page/19','Services'); ?>  </li>
                 <li class="par-list"> <?php echo anchor('view/page/20','Contact Us'); ?>  </li>
-                
             </ul>
-            
-            
         </div>
-        
-        
         <div class="menu-item">
-            
+        <div class="title-name"> <h3> Quick Contact </h3> </div>
+        <div class="quick-contact">
+            <?php foreach ($gadget as $data)
+            { ?>
+            <p class="n-body"> <b> <?php echo $data->title;?> </b> : <?php echo $data->body; ?></p>
+            <?php
+            } ?>
+        </div>
+        </div>
+        <div class="menu-item">
             <div class="menu-title">
                 <div class="title-name">
-                    <h2> News and Events </h2>
+                    <h3> News and Events </h3>
                 </div>
             </div>
             <?php foreach ($event as $data)
 {
     $aid = $data->aid;
     $evtitle = $data->title;
-   
+
     $image = $data->image;
 ?>
-          <div class="sub-title-name"> <?php echo $data->title; ?> </div>
+            <div class="sub-title-name"> <?php echo $data->title; ?> </div>
          <p class="n-body"> <?php
           $wordsreturned = 150;
           $string = $data->body;
@@ -109,34 +110,18 @@ else
           {
               $retval = $string;
               echo strip_tags($retval);
-          }         
+          }
           else {
               $retval = Substr($string,0,$wordsreturned);
               $retval = $retval.".. "."";
-              ?> 
+              ?>
           <?php echo strip_tags($retval); } ?> </p>
- 
          <p class="n-body"> <?php echo anchor('view/events/'.$aid,'more','style="color:green;"'); ?> </p> <hr/> <?php } ?>
-                  
         </div>
+    
+        <label id="copyright">&nbsp; </label> <br/>
+            <label id="copyright">  Copyright &copy;  2013 </label> <br/>
+            <label> &nbsp;</label>
+            
         
-        
-        
-        <div class="menu-item">
-        <div class="title-name"> <h2> Quick Contact </h2> </div>
-        <div class="quick-contact">
-            <?php foreach ($gadget as $data)
-            { ?>
-            <p class="n-body"> <b> <?php echo $data->title;?> </b> : <?php echo $data->body; ?></p>
-            <?php
-            }
-?>
-       
-        </div>
-        </div>
-        
-        <div class="footer">
-          
-         Copyright &copy; 2013              
-        </div>        
     </div>

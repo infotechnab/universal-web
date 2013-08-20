@@ -34,9 +34,11 @@
             if(($image =='0')||($image ==''))
             {
                 $image = 'image not set';
-            }
+            
 ?>
             <td><?php echo $image; ?></td>
+            <?php } else { ?>
+            <td><img src="<?php echo base_url(); ?>uploads/<?php echo $image; ?>" width="60px" height="50px" />  </td> <?php } ?>
             <td><?php echo anchor('admin/editactivities/'.$data->aid,'Edit') ?> / <?php echo anchor('admin/deleteactivities/'.$data->aid,'Delete') ?></td>
       
         </tr>

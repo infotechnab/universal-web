@@ -1,10 +1,3 @@
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
 <h2>Pages </h2>
 <a href="addpage">Add New Page</a>
 <div id="body">
@@ -29,15 +22,16 @@
             foreach ($query as $data){
             ?>
           <tr>
-            <td><?php echo $data->pid ?></td>
+            <td><?php echo $data->pid; ?></td>
+            <td><?php echo $data->title; ?></td>
              <?php $image = $data->image;
             if(($image =='0')||($image ==''))
             {
                 $image = 'image not set';
-            }
-?>
-            <td><?php echo $image; ?></td>
-            <td><img src="<?php echo base_url(); ?>uploads/<?php echo $data->image ?>" width="60px" height="50px" />  </td>
+            ?>
+            <td><?php echo $image; ?> </td>
+            <?php } else { ?>
+            <td><img src="<?php echo base_url(); ?>uploads/<?php echo $image; ?>" width="60px" height="50px" />  </td> <?php } ?>
             <td><?php echo $data->date ?></td>
             
             <td><?php if($data->status==0)
