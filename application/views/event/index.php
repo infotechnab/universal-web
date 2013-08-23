@@ -34,18 +34,29 @@
         $image = $data->image;
     }?>    
   <div class="title-name">
-  <h2> <?php echo $title; ?></h2>
+  <h3> <?php echo $title; ?></h3>
   </div>
-    
-    <?php if((isset($image)) && ($image !=='') && ($image !=='0')){ ?>    
-    <img src="<?php echo base_url();?>uploads/<?php echo $image; ?>" style="max-height: 100%;"/>
-    <?php } ?>
-    
-    <p class="para"><?php echo $body; ?></p>
-        
+    <div class="page-pragraph">
+<?php if((isset($image)) && (trim($image) !=='') && ($image !==0))
+{ ?>
+    <img src="<?php echo base_url();?>uploads/<?php echo $image; ?>" alt="<?php echo $title; ?>" />
+<?php } ?>    
+    <p class="para"><?php echo $body; ?></p>        
+</div>
 </div>
 </div>    
 <!--//======full div close=========//-->
+</div>
+<div class="clear" > </div>
+<div id="footer">
+     
+     
+            <div  id="copyright">  Copyright &copy;  2013. Universal Office Suppliers  </div> 
+            
+        <div class="credit"> Designed By: 
+            <img src="<?php echo base_url(); ?>content/images/salyaniTech.png" alt="salyani logo"  /> 
+        </div>
+            <div class="clear" > </div>
 </div>
 </body>
 </html>
