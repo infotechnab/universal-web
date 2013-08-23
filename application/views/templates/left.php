@@ -119,9 +119,7 @@ else
          <p class="n-body"> <?php echo anchor('view/events/'.$aid,'more','style="color:green;"'); ?> </p> <hr/> <?php } ?>
         </div>
     
-        <label id="copyright">&nbsp; </label> <br/>
-            <label id="copyright">  Copyright &copy;  2013 </label> <br/>
-            <label> &nbsp;</label>
+        
             
         
     </div>

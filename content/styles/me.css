@@ -191,17 +191,7 @@ a
     background-color: #EBF3EC;
     
 }
-.para{
-    font-size: 17px;
-    padding: 0 20px 0 20px;
-    
-}
 
-#copyright{
-    margin:25px auto 100px 140px;
-    font-size: 13px;
-    
-}
 .content img
 {
     margin: 10px;
@@ -211,11 +201,43 @@ a
     max-height: 300px;
     max-width: 550px;
 }
+.para{
+    font-size: 17px;
+    padding: 0 20px 0 20px;
+    
+}
+
+
+
+#copyright{
+   
+    font-size: 12px;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto 0 auto;
+   // padding-top: 20px;
+   
+}
 .credit{
     float: right;
-    padding: 8px;
-    
+     margin-top: -25px;
+      font-size: 10px;
+}
+
+.credit img{
+    margin: 0;
+    padding: 0;
+    height: 30px;
 }
 .clear{
     clear: both;
+}
+
+#footer
+{
+    margin-top: 10px;
+    font-size: 10px;
+    padding: 10px;
+    background-color: #fff;
+    
 }
