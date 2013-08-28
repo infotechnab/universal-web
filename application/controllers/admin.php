@@ -67,7 +67,7 @@ class admin extends CI_Controller {
             $this->load->library(array('form_validation', 'session'));
             //set validation rules
             $this->form_validation->set_rules('title', 'Title', 'required|xss_clean|max_length[200]');
-            $this->form_validation->set_rules('body', 'Body', 'required|xss_clean');
+            $this->form_validation->set_rules('area1', 'Body', 'required|xss_clean');
             
             if (($this->form_validation->run() == TRUE))
             {
@@ -85,7 +85,7 @@ class admin extends CI_Controller {
                 $image = $data['upload_data']['file_name'];
                 
                 $name = $this->input->post('title');
-                $body = $this->input->post('body');
+                $body = $this->input->post('area1');
                 $status = $this->input->post('status');
                 $this->dbmodel->add_new_page($name, $body, $image, $status);
                 $this->session->set_flashdata('message', 'One pages added sucessfully');
@@ -95,7 +95,7 @@ class admin extends CI_Controller {
              else
              { $image = "";               
                 $name = $this->input->post('title');
-                $body = $this->input->post('body');
+                $body = $this->input->post('area1');
                 $status = $this->input->post('status');
                 $this->dbmodel->add_new_page($name, $body, $image, $status);
                 $this->session->set_flashdata('message', 'One pages added sucessfully');
@@ -150,7 +150,7 @@ class admin extends CI_Controller {
             $this->load->library(array('form_validation', 'session'));
             //set validation rules
             $this->form_validation->set_rules('title', 'Title', 'required|xss_clean|max_length[200]');
-            $this->form_validation->set_rules('body', 'Body', 'required|xss_clean');
+            $this->form_validation->set_rules('area1', 'Body', 'required|xss_clean');
            if (($this->form_validation->run() == TRUE))
             {
              if ($_FILES && $_FILES['file']['name'] !== "")
@@ -167,7 +167,7 @@ class admin extends CI_Controller {
                 $image = $data['upload_data']['file_name'];
                 $id = $this->input->post('id');
                 $title = $this->input->post('title');
-                $body = $this->input->post('body');
+                $body = $this->input->post('area1');
                 $status = $this->input->post('status');
                 $this->dbmodel->update_page($id, $title, $body, $image, $status);
                 $this->session->set_flashdata('message', 'Data Modified Sucessfully');
@@ -179,7 +179,7 @@ class admin extends CI_Controller {
              {              
                 $image = $this->input->post('imgname');               
                 $name = $this->input->post('title');
-                $body = $this->input->post('body');
+                $body = $this->input->post('area1');
                 $status = $this->input->post('status');
                 $this->dbmodel->update_page($id, $name, $body, $image, $status);
                 $this->session->set_flashdata('message', 'Data Modified Sucessfully');

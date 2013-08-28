@@ -28,7 +28,7 @@
       <input type="hidden" name="imgname" value="<?php echo $image; ?>"
   </p>
   <p>Body:<br />
-  <textarea name="body" rows="5" cols="50" style="resize:none;"><?php echo $body; ?></textarea>
+  <textarea name="area1" cols="50" rows="5"><?php echo $body; ?></textarea>
   </p>
    <?php if($image!=="")
   {?>  

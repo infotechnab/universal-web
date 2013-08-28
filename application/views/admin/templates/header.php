@@ -4,6 +4,11 @@
 <head>
     <link rel="stylesheet" href="<?php echo base_url(); ?>content/styles/styles.css" type="text/css" /> 
     <script src="<?php echo base_url(); ?>content/jquery-1.9.1.min.js" > </script>
+     <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+  //]]>
+  </script>
 	<meta charset="utf-8">
         
 	<title>.:Dashboard Universal Office Suppliers </title>
