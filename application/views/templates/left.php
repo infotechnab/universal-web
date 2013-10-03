@@ -111,6 +111,7 @@ else
               $retval = $string;
               echo strip_tags($retval);
           }
+          
           else 
           {
               $retval = Substr($string,0,$wordsreturned);
@@ -119,7 +120,7 @@ else
           <?php echo strip_tags($retval); 
           
           } ?> </p>
-         <p class="n-body"> <?php echo anchor('view/events/'.$aid,'more','style="color:green;"'); ?> </p> <hr/> <?php } ?>
+         <p class="n-body"> <?php echo anchor('view/events/'.$aid,'more','style="color:green;"'); ?> </p> <?php } ?>
         </div>
     
         
